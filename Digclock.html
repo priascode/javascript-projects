@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Digital Clock</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .clock{
+            background-color: rgba(221, 221, 221, 0.6);
+            color: aliceblue;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            letter-spacing: 7px;
+            font-size: 60px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transform: translateX(-50%)translateY(-50%);
+            padding: 20px;
+            border-radius: 10px;
+        
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="dig-clock" class="clock"></div>
+    <script type="text/javascript">
+
+        
+function displayTime(){
+        var date = new Date();
+        var hrs = date.getHours();
+        var mins = date.getMinutes();
+        var secs = date.getSeconds();
+        var session = "AM"
+
+
+        // changing 24 hour format to 12hr format
+        if(hrs==0){
+            hrs=12;
+        }
+        if(hrs>=12){
+            hrs=hrs-12;
+            session ="PM"
+        }
+
+        hrs=(hrs<10)?"0"+hrs:hrs;
+        mins=(mins<10)?"0"+mins:mins;
+        secs=(secs<10)?"0"+secs:secs;
+
+        document.getElementById("dig-clock").innerHTML=hrs + ":" + mins + ":" + secs + session;
+        setTimeout(displayTime,1000);
+
+    }
+    displayTime();
+   
+    </script>
+    
+</body>
+</html>
