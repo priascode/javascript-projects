@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <style>
+        body{
+            background-color: aliceblue;
+            position: absolute;
+        }
+        .box{
+            border: 1px solid black;
+            position: relative;
+            top: 200px;
+            left: 170%;
+            transform: translateX(-25%) translateY(-25%);
+            height: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #ddd;
+            box-shadow: 8px 10px #88888894;
+  
+            /* margin-top: 300px;
+            margin-left: 400px; */
+        }
+        .title{
+            background-color: #bfdcdf;
+            color: rgb(18, 55, 124);
+            font-size:20px;
+            width: 75%;
+            margin-left: 3px;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 10px;
+            border: 5px solid black;
+        }
+        input[type="button"]{
+            background-color: rgb(22, 154, 194);
+            color: azure;
+            border: 2px solid black;
+            width: 100%;
+            height: 40px;
+            font-weight: bolder;
+            font-size: 30px;
+            cursor: pointer;
+           
+        }
+        
+        input[type="text"]{
+            background-color: #fff;
+            border: 2px solid black;
+            width:100%;
+            height: 35px;
+        }
+        @media only screen and (max-width: 768px) {
+            .box{
+                position: relative;
+                top: 80px;
+                left: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <table>
+            <tr>
+                <td colspan="4"class="title">Calculator</td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" id="result"></td>
+                <td><input type="button" value="c" onclick="clr()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="display('1')" ></td>
+                <td><input type="button" value="2" onclick="display('2')" ></td>
+                <td><input type="button" value="3" onclick="display('3')" ></td>
+                <td><input type="button" value="/" onclick="display('/')" ></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="display('4')"></td>
+                <td><input type="button" value="5" onclick="display('5')" ></td>
+                <td><input type="button" value="6" onclick="display('6')" ></td>
+                <td><input type="button" value="-" onclick="display('-')" ></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="display('7')" ></td>
+                <td><input type="button" value="8" onclick="display('8')" ></td>
+                <td><input type="button" value="9" onclick="display('9')" ></td>
+                <td><input type="button" value="+" onclick="display('+')" ></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." onclick="display('.')" ></td>
+                <td><input type="button" value="0" onclick="display('0')" ></td>
+                <td><input type="button" value="=" onclick="equate()" ></td>
+                <td><input type="button" value="*" onclick="display('*')" ></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function clr() {
+            document.getElementById("result").value = "";
+        }
+        function display(val) {
+            document.getElementById("result").value+=val;
+
+        }
+        function equate(params) {
+            let eq = document.getElementById("result").value;
+            let res = eval(eq);
+            document.getElementById("result").value = res;
+            
+        }
+    </script>
+</body>
+</html>
